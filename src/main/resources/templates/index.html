@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Welcome Mi Cerdito</title>
+</head>
+<body>
+    <h2 class="text-center">Welcome to Mi Cerdito</h2>
+
+    <div class="container">
+        <div class="row">
+            <h1>List of Person</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <a th:href="@{/person}"><span>Register Person</span></a>&nbsp;&nbsp;
+                <a th:href="@{/vehicle}"><span>Register Vehicle</span></a>
+            </div>
+        </div>
+        <br>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>NAMES</th>
+                <th>ID</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="person : ${people}">
+                <td th:text="${person.idPerson}">ID</td>
+                <td th:text="${person.fullName}">FULLNAME</td>
+                <td th:text="${person.dni}">DNI</td>
+                <td>
+                    <a th:href="@{/estudiantes/editar/{id}(id=${person.idPerson})}" class="btn btn-info">Editar</a>
+                    <a th:href="@{/estudiantes/{id}(id=${person.idPerson})}" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <h1>List of Vehicles</h1>
+        </div>
+        <br>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>LICENSE</th>
+                <th>DATE_OUT</th>
+                <th>DRIVER</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="vehicle : ${vehicles}">
+                <td th:text="${vehicle.idVehicle}">ID</td>
+                <td th:text="${vehicle.license}">LICENSE</td>
+                <td th:text="${vehicle.registerDate}">DATE_OUT</td>
+                <td th:text="${vehicle.person.fullName}">DRIVER</td>
+                <td>
+                    <a th:href="@{/estudiantes/editar/{id}(id=${vehicle.idVehicle})}" class="btn btn-info">Editar</a>
+                    <a th:href="@{/estudiantes/{id}(id=${vehicle.idVehicle})}" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

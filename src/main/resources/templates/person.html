@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register new Driver</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<!--<div class="container">
+    <div class="row">
+        <h1>List of Person</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <a th:href="@{/estudiantes/nuevo}" class="btn btn-primary btn-sm mb3">Agregar estudiante</a>
+        </div>
+    </div>
+    <br>
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>NAMES</th>
+            <th>ID</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="person : ${list-person}">
+            <td th:text="${person.idPerson}">ID</td>
+            <td th:text="${person.fullName}">FULLNAME</td>
+            <td th:text="${person.dni}">DNI</td>
+            <td>
+                <a th:href="@{/estudiantes/editar/{id}(id=${estudiante.id})}" class="btn btn-info">Editar</a>
+                <a th:href="@{/estudiantes/{id}(id=${estudiante.id})}" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class="text-center">Register Person</h1>
+            <div class="card-body">
+                <form th:action="@{/savePerson}" th:object="${person}" method="POST">
+                    <div class="form-group">
+                        <label>FullName : </label>
+                        <input type="text" name="fullName" th:field="*{fullName}" class="form-control" placeholder="Insert fullname " required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>DNI : </label>
+                        <input type="text" name="dni" th:field="*{dni}" class="form-control" placeholder="Insert dni " required>
+                    </div>
+
+                    <div class="box-footer">
+                        <button class="btn btn-success" >Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
