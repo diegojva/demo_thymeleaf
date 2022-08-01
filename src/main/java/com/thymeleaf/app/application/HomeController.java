@@ -16,10 +16,6 @@ public class HomeController {
     @Autowired
     private VehicleService vehicleService;
 
-    /*@GetMapping
-    public String index() {
-        return "index";
-    }*/
 
     @GetMapping()
     public String index(Model model) {
